@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @loyalty.name %>
+</p>
+
+<p>
+  <b>Points:</b>
+  <%= @loyalty.points %>
+</p>
+
+
+<%= link_to 'Edit', edit_loyalty_path(@loyalty) %> |
+<%= link_to 'Back', loyalties_path %>

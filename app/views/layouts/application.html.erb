@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Myapp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  	<%= javascript_include_tag :defaults %>
+
+  <%= csrf_meta_tags %>
+	<div id="user_nav">
+	  <% if user_signed_in? %>
+	    Signed in as <%= current_user.email %>. Not you?
+	    <%= link_to "Sign out", logout_path, :method => :delete %>
+	  <% else %>
+	    <%= link_to "Sign up as user", new_user_registration_path %> or <%= link_to "sign in as user", new_user_session_path %>
+	  <% end %>
+	</div>
+	<div id="owner_nav">
+	  <% if owner_signed_in? %>
+	    Signed in as <%= current_owner.email %>. Not you?
+	    <%= link_to "Sign out", logout_path, :method => :delete %>
+	  <% else %>
+	    <%= link_to "Sign up as owner", new_owner_registration_path %> or <%= link_to "sign in as owner", new_owner_session_path %>
+	  <% end %>
+	</div>
+
+
+</head>
+
+<body>
+
+<%= yield %>
+
+</body>
+</html>

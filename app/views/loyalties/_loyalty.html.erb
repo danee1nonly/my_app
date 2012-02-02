@@ -1,0 +1,17 @@
+<p>
+  <b>Points:</b>
+  <%= loyalty.points %>
+</p>
+ 
+ 
+   <% if user_signed_in? %>
+		<p>
+		  <b>Shop</b>
+		  <%= loyalty.shop.name %>
+		</p>
+  <% else if owner_signed_in? %>
+		<p>
+		  <b>User</b>
+		</p>
+	<%end%>
+ <%end%>

@@ -1,0 +1,25 @@
+<%= form_for(@loyalty) do |f| %>
+  <% if @loyalty.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loyalty.errors.count, "error") %> prohibited this loyalty from being saved:</h2>
+
+      <ul>
+      <% @loyalty.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :points %><br />
+    <%= f.number_field :points %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

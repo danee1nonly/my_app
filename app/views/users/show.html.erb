@@ -1,0 +1,11 @@
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <% unless @user.loyalties.empty? %>
+        <table class="loyalties" summary="User loyalties">
+          <%= render @user.loyalties %>
+        </table>
+      <% end %>
+    </td>
+  </tr>
+</table>
