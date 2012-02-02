@@ -1,10 +1,11 @@
 <li>
  
    <% if user_signed_in? %>
-		
 		  
-		  
-		  <%= link_to "#{loyalty.shop.name} (#{loyalty.points})", shop_path(loyalty.shop), "data-icon" => "gear" %>
+		  <img src="http://www.starbucks.com/static/images/global/logo.png" alt="some_text"/>
+		  <%= link_to "#{loyalty.shop.name}", shop_path(loyalty.shop), "data-icon" => "gear"%>
+		  <span class="ui-li-aside" ><%=loyalty.points%></span>
+
 
   <% else if owner_signed_in? %>
 		<p>
