@@ -1,6 +1,61 @@
+<div data-role="header">
+	<h1>My Rewards</h1>
+	<% if user_signed_in? or owner_signed_in?%>
+		<%= link_to 'Sign out', logout_path, "class" => "ui-btn-right", :method => :delete %>
+		<% if user_signed_in? %>
+			<%= link_to 'Settings', edit_user_password_path(@user), "class" => "ui-btn-left", "data-icon" => "gear" %>
+		<% else%>
+			<%= link_to 'Settings', edit_owner_password_path(@owner), "class" => "ui-btn-left", "data-icon" => "gear" %>
+		<% end %>
+	<% end %>
+</div>
 <p id="notice"><%= notice %></p>
-Home
-<p>
 
+	<div data-role="content">
+	  <% if !user_signed_in? and !owner_signed_in?%>
+	    <%= link_to "Sign up as user", new_user_registration_path %> or <%= link_to "sign in as user", new_user_session_path %>
+	  
+	<br>
+	 
+	    <%= link_to "Sign up as owner", new_owner_registration_path %> or <%= link_to "sign in as owner", new_owner_session_path %>
+	  <% end %>
+	
+	
+  <% if user_signed_in? %>
+  	<%= @profile.name %>
+  	
+  	<div data-role="listview">
+  	<%= render @loyalties%>
+  </div>
+  <% else if owner_signed_in? %>
+	<%= @owner.email %> 
+	<%= render @shop%>
+	
+	<%= form_for([@shop, @shop.loyalties.build]) do |f| %>
+	  <div class="field">
+	    <%= f.label :email %>
+	    <%= f.text_field :name %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :points %>
+	    <%= f.number_field :points %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>	
+	<%= render @loyalties%>
+  	<% else %>	
+  			
+
+  	
+  	
+	<% end %>
+
+	
   
-</p>
+  
+  <% end%>
+  
+
+</div>

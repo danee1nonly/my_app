@@ -1,17 +1,15 @@
-<p>
-  <b>Points:</b>
-  <%= loyalty.points %>
-</p>
- 
+<li>
  
    <% if user_signed_in? %>
-		<p>
-		  <b>Shop</b>
-		  <%= loyalty.shop.name %>
-		</p>
+		
+		  
+		  
+		  <%= link_to "#{loyalty.shop.name} (#{loyalty.points})", shop_path(loyalty.shop), "data-icon" => "gear" %>
+
   <% else if owner_signed_in? %>
 		<p>
 		  <b>User</b>
 		</p>
 	<%end%>
  <%end%>
+</li>

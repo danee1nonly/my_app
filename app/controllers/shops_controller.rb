@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_filter :authenticate_owner!
+  before_filter :authenticate_owner!, :except => [:show]
 
   # GET /shops
   # GET /shops.json
