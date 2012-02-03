@@ -1,5 +1,5 @@
 Myapp::Application.routes.draw do
-  devise_for :owners
+  devise_for :owners, :controllers => {:registrations => "registrations"}
 
   resources :shops do
     resources :loyalties

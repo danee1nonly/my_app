@@ -17,7 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
     if resource.class == User
       edit_profile_path(resource)
     else
-      edit_shop_path(resource)
+      edit_shop_path(resource.id)
     end
   end  
 end 
